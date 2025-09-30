@@ -23,7 +23,7 @@ const UserManager = () => {
   const fetchUsers = async () => {
     try {
       const res = await axios.get(
-        `http://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/auth/users`
+        `https://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/auth/users`
       );
       setUsers(res.data);
     } catch (err) {
@@ -44,7 +44,7 @@ const UserManager = () => {
     try {
       if (editingId) {
         await axios.put(
-          `http://${
+          `https://${
             import.meta.env.VITE_APP_BACKEND_IP
           }:5000/api/auth/users/${editingId}`,
           form
@@ -53,7 +53,7 @@ const UserManager = () => {
         setEditingId(null);
       } else {
         await axios.post(
-          `http://${
+          `https://${
             import.meta.env.VITE_APP_BACKEND_IP
           }:5000/api/auth/register`,
           form
@@ -98,7 +98,7 @@ const UserManager = () => {
   const confirmDelete = async (id) => {
     try {
       await axios.delete(
-        `http://${
+        `https://${
           import.meta.env.VITE_APP_BACKEND_IP
         }:5000/api/auth/users/${id}`
       );

@@ -12,10 +12,10 @@ import { MdOutlineRestorePage } from "react-icons/md";
 import { GrClearOption } from "react-icons/gr";
 import { IoIosSave } from "react-icons/io";
 
-const API_BASE = `http://${
+const API_BASE = `https://${
   import.meta.env.VITE_APP_BACKEND_IP
 }:5000/api/overtime`;
-const EMPLOYEE_API = `http://${
+const EMPLOYEE_API = `https://${
   import.meta.env.VITE_APP_BACKEND_IP
 }:5000/api/employee`;
 
@@ -29,7 +29,7 @@ function OvertimeForm() {
 
   useEffect(() => {
     axios
-      .get(`http://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/triple-ot`)
+      .get(`https://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/triple-ot`)
       .then((res) => setTripleOTDates(res.data.map((d) => d.date)));
   }, []);
 

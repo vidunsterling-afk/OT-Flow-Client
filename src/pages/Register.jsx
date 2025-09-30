@@ -81,7 +81,7 @@ export default function Register() {
         e.preventDefault();
 
         try {
-            await axios.post(`http://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/auth/register`, formData);
+            await axios.post(`https://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/auth/register`, formData);
             alert("Registered successfully! Please login.");
             navigate("/");
         } catch (err) {

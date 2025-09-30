@@ -17,7 +17,7 @@ const EmployeeManagement = () => {
     }, []);
 
     const fetchEmployees = async () => {
-        const res = await axios.get(`http://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/employee`);
+        const res = await axios.get(`https://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/employee`);
         setEmployees(res.data);
     };
 
@@ -29,9 +29,9 @@ const EmployeeManagement = () => {
         e.preventDefault();
         try {
             if (editingId) {
-                await axios.put(`http://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/employee/${editingId}`, form);
+                await axios.put(`https://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/employee/${editingId}`, form);
             } else {
-                await axios.post(`http://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/employee`, form);
+                await axios.post(`https://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/employee`, form);
             }
             fetchEmployees();
             setForm({ employee_no: '', employee_name: '' });
@@ -67,7 +67,7 @@ const EmployeeManagement = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then(async (result) => {
             if (result.isConfirmed) {
-                await axios.delete(`http://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/employee/${id}`);
+                await axios.delete(`https://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/employee/${id}`);
                 fetchEmployees();
                 Swal.fire(
                     'Deleted!',

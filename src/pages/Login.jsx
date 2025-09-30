@@ -26,7 +26,7 @@ export default function Login() {
     e?.preventDefault();
     try {
       const res = await axios.post(
-        `http://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/auth/login`,
+        `https://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/auth/login`,
         { email, password }
       );
       login(res.data.token);

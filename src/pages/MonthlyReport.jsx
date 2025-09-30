@@ -27,7 +27,7 @@ function MonthlyReport() {
     setLoading(true);
     try {
       const res = await axios.get(
-        `http://${
+        `https://${
           import.meta.env.VITE_APP_BACKEND_IP
         }:5000/api/overtime/monthly-report`,
         {

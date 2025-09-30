@@ -9,7 +9,7 @@ import { FiSun, FiMoon } from "react-icons/fi";
 
 export default function TopBar() {
   const { hour } = GreetingInfo();
-  const API_BASE = `http://${
+  const API_BASE = `https://${
     import.meta.env.VITE_APP_BACKEND_IP
   }:5000/api/overtime`;
   const [notifications, setNotifications] = useState([]);
