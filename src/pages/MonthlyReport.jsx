@@ -29,7 +29,7 @@ function MonthlyReport() {
       const res = await axios.get(
         `https://${
           import.meta.env.VITE_APP_BACKEND_IP
-        }:5000/api/overtime/monthly-report`,
+        }/api/overtime/monthly-report`,
         {
           params: {
             startDate,

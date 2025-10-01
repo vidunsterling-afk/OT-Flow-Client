@@ -14,10 +14,10 @@ import { IoIosSave } from "react-icons/io";
 
 const API_BASE = `https://${
   import.meta.env.VITE_APP_BACKEND_IP
-}:5000/api/overtime`;
+}/api/overtime`;
 const EMPLOYEE_API = `https://${
   import.meta.env.VITE_APP_BACKEND_IP
-}:5000/api/employee`;
+}/api/employee`;
 
 function OvertimeForm() {
   const [employees, setEmployees] = useState([]);
@@ -29,7 +29,7 @@ function OvertimeForm() {
 
   useEffect(() => {
     axios
-      .get(`https://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/triple-ot`)
+      .get(`https://${import.meta.env.VITE_APP_BACKEND_IP}/api/triple-ot`)
       .then((res) => setTripleOTDates(res.data.map((d) => d.date)));
   }, []);
 

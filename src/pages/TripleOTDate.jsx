@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 const TRIPLE_OT_API = `https://${
   import.meta.env.VITE_APP_BACKEND_IP
-}:5000/api/triple-ot`;
+}/api/triple-ot`;
 
 function TripleOTDatePage() {
   const [dates, setDates] = useState([]);

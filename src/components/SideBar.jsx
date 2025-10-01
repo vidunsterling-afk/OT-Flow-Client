@@ -40,7 +40,7 @@ export default function SideBar() {
   const connToastShown = useRef(new Set());
   const dbToastShown = useRef(new Set());
 
-  const BACKEND_URL = `https://${import.meta.env.VITE_APP_BACKEND_IP}:5000`;
+  const BACKEND_URL = `https://${import.meta.env.VITE_APP_BACKEND_IP}`;
 
   const signalIconSize = "text-2xl";
 

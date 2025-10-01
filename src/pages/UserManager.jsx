@@ -23,7 +23,7 @@ const UserManager = () => {
   const fetchUsers = async () => {
     try {
       const res = await axios.get(
-        `https://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/auth/users`
+        `https://${import.meta.env.VITE_APP_BACKEND_IP}/api/auth/users`
       );
       setUsers(res.data);
     } catch (err) {
@@ -46,7 +46,7 @@ const UserManager = () => {
         await axios.put(
           `https://${
             import.meta.env.VITE_APP_BACKEND_IP
-          }:5000/api/auth/users/${editingId}`,
+          }/api/auth/users/${editingId}`,
           form
         );
         Swal.fire("Success", "User updated successfully!", "success");
@@ -55,7 +55,7 @@ const UserManager = () => {
         await axios.post(
           `https://${
             import.meta.env.VITE_APP_BACKEND_IP
-          }:5000/api/auth/register`,
+          }/api/auth/register`,
           form
         );
         Swal.fire("Success", "User added successfully!", "success");
@@ -100,7 +100,7 @@ const UserManager = () => {
       await axios.delete(
         `https://${
           import.meta.env.VITE_APP_BACKEND_IP
-        }:5000/api/auth/users/${id}`
+        }/api/auth/users/${id}`
       );
       Swal.fire("Deleted!", "User has been deleted.", "success");
       fetchUsers();

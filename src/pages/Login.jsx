@@ -11,6 +11,9 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useContext(AuthContext);
+  const [backendStatus, setBackendStatus] = useState("Checking...");
+  const backendUrl =
+    "https://c5473288-bfc9-47e5-999d-05e365573246-00-3l0p7pfv7qep7.sisko.replit.dev";
   const navigate = useNavigate();
 
   const containerRef = useRef(null);
@@ -22,11 +25,29 @@ export default function Login() {
     inputRefs.current[index] = el;
   };
 
+  useEffect(() => {
+    const checkBackend = async () => {
+      try {
+        const res = await axios.get(`${backendUrl}/api/health`);
+        if (res.data.status === "ok") {
+          setBackendStatus("✅ Online");
+        } else {
+          setBackendStatus("❌ Offline");
+        }
+      } catch (err) {
+        console.log(err); // helps debug CORS/connection issues
+        setBackendStatus("❌ Offline");
+      }
+    };
+
+    checkBackend();
+  }, []);
+
   const handleSubmit = async (e) => {
     e?.preventDefault();
     try {
       const res = await axios.post(
-        `https://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/auth/login`,
+        `https://${import.meta.env.VITE_APP_BACKEND_IP}/api/auth/login`,
         { email, password }
       );
       login(res.data.token);
@@ -137,6 +158,13 @@ export default function Login() {
           </div>
         </div>
       </section>
+      {/* Backend Status */}
+      <div className="mt-4 text-center text-sm text-gray-600 border-t pt-2">
+        <p>
+          Backend: <span>{backendStatus}</span>
+        </p>
+        <p className="text-xs text-gray-500">{backendUrl}</p>
+      </div>
     </>
   );
 }

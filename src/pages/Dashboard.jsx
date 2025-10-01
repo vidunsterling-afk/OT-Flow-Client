@@ -52,7 +52,7 @@ export default function Dashboard() {
   const fetchEmployees = async () => {
     try {
       const res = await axios.get(
-        `https://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/employee`
+        `https://${import.meta.env.VITE_APP_BACKEND_IP}/api/employee`
       );
       setEmployees(res.data);
     } catch (error) {
@@ -68,7 +68,7 @@ export default function Dashboard() {
       const res = await axios.get(
         `https://${
           import.meta.env.VITE_APP_BACKEND_IP
-        }:5000/api/overtime/monthly-report`,
+        }/api/overtime/monthly-report`,
         { params: { startDate, endDate } }
       );
 
@@ -98,7 +98,7 @@ export default function Dashboard() {
   const fetchAllOT = async () => {
     try {
       const res = await axios.get(
-        `https://${import.meta.env.VITE_APP_BACKEND_IP}:5000/api/overtime`
+        `https://${import.meta.env.VITE_APP_BACKEND_IP}/api/overtime`
       );
       const all = res.data;
 

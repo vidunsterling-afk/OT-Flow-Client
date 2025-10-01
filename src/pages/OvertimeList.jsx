@@ -11,10 +11,10 @@ import { FaSortNumericDown, FaSortNumericUp } from "react-icons/fa";
 
 const API_BASE = `https://${
   import.meta.env.VITE_APP_BACKEND_IP
-}:5000/api/overtime`;
+}/api/overtime`;
 const EMPLOYEE_API = `https://${
   import.meta.env.VITE_APP_BACKEND_IP
-}:5000/api/employee`;
+}/api/employee`;
 
 function OvertimeList() {
   const [entries, setEntries] = useState([]);

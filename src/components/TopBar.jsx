@@ -11,7 +11,7 @@ export default function TopBar() {
   const { hour } = GreetingInfo();
   const API_BASE = `https://${
     import.meta.env.VITE_APP_BACKEND_IP
-  }:5000/api/overtime`;
+  }/api/overtime`;
   const [notifications, setNotifications] = useState([]);
   const { user } = useContext(AuthContext);
   const [currentTime, setCurrentTime] = useState(new Date());
